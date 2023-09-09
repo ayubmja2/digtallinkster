@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email     String @unique
+  firstName String
+  lastName  String
+  password  String
+
+  webcollections Webcollection[]
+  webmarks       Webmark[]
+  Picture        Picture[]
+}
+
+model Webcollection {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId   String
+  user     User      @relation(fields: [userId], references: [id])
+  webmarks Webmark[]
+
+  @@unique([userId, title])
+  @@index([userId, id])
+}
+
+model Webmark {
+  id          String   @id @default(uuid())
+  url         String
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  webcollectionId String
+  webcollection   Webcollection @relation(fields: [webcollectionId], references: [id])
+
+  @@index([userId])
+}
+
+model Picture {
+  id        String @id @default(uuid())
+  file      String
+  file_name String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}
