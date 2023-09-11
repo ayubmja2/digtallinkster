@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 import Button from "./Button";
 import Card from "./Card";
+import NewWebMark from "./newWebMark";
 
 const getData = async () => {
   const user = await getUserFromCookie(cookies());
@@ -24,9 +25,7 @@ const WebmarkCard = async ({ title }) => {
           <span className="text-3xl text-gray-600">{title}</span>
         </div>
         <div>
-          <Button intent="text" className="text-blue-600">
-            + Create New
-          </Button>
+          <NewWebMark />
         </div>
       </div>
       <div>

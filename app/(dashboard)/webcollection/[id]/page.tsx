@@ -22,7 +22,7 @@ export default async function WebCollectionPage({ params }) {
   const collection = await getData(params.id);
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1">
-      <WebmarkCard title={collection?.title} />
+      <WebmarkCard title={collection?.title} collectionId={collection?.id} />
     </div>
   );
 }
