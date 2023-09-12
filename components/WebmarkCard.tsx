@@ -7,25 +7,28 @@ import NewWebMark from "./newWebMark";
 
 const getData = async () => {
   const user = await getUserFromCookie(cookies());
-  const marks = await db.webmark.findMany({
+
+  const webmarks = await db.webmark.findUnique({
     where: {
-      userId: user?.id,
+      id: user?.id,
     },
   });
-  return marks;
+  return webmarks;
 };
 
-const WebmarkCard = async ({ title }) => {
-  const data = await getData();
-
+const WebmarkCard = async ({ title, id, webmarks }) => {
+  const data = webmarks || (await getData());
+  // console.log("webmarkcard" + typeof id); //string here
   return (
     <Card>
       <div className="flex justify-between items-center">
         <div>
-          <span className="text-3xl text-gray-600">{title}</span>
+          <span className="text-3xl text-gray-600">
+            {title}
+          </span>
         </div>
         <div>
-          <NewWebMark />
+          <NewWebMark webcollectionId={id} />
         </div>
       </div>
       <div>
@@ -35,6 +38,9 @@ const WebmarkCard = async ({ title }) => {
               <div className="py-2 " key={mark.id}>
                 <div>
                   <span className="text-gray-800">{mark.title}</span>
+                </div>
+                <div>
+                  <span className="text-gray-800">{mark.url}</span>
                 </div>
                 <div>
                   <span className="text-gray-400 text-sm">

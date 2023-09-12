@@ -1,7 +1,7 @@
 import { getUserFromCookie } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { db } from "@/lib/db";
-import WebmarkCard from "@/components/WebMarkCard";
+import WebmarkCard from "@/components/WebmarkCard";
 
 const getData = async (id) => {
   const user = await getUserFromCookie(cookies());
@@ -22,7 +22,11 @@ export default async function WebCollectionPage({ params }) {
   const collection = await getData(params.id);
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1">
-      <WebmarkCard title={collection?.title} collectionId={collection?.id} />
+      <WebmarkCard
+        title={collection?.title}
+        id={collection?.id}
+        webmarks={collection?.webmarks}
+      />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 //import Sidebar from "@/components/Sidebar";
 import clsx from "clsx";
 import GlassPane from "@/components/GlassPane";
+import Sidebar from "@/components/Sidebar";
 
 export default function DashboardRootLayout({ children }) {
   return (
@@ -11,6 +12,7 @@ export default function DashboardRootLayout({ children }) {
       <body className="h-screen w-screen p-6">
         <GlassPane className="w-full h-full p-6 flex align-center container mx-auto">
           <main className="w-full pl-6 h-full">{children}</main>
+          <Sidebar />
         </GlassPane>
 
         <div id="modal"></div>

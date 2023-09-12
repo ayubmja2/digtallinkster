@@ -7,7 +7,8 @@ import Input from "./Input";
 
 Modal.setAppElement("#modal");
 
-const NewWebMark = () => {
+const NewWebMark = (webcollectionId) => {
+  // webcollectionId is an object with a key of webcollectionId and a value of the id of the webcollection
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -16,7 +17,7 @@ const NewWebMark = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createNewWebmark(title, url);
+    await createNewWebmark(title, url, webcollectionId.webcollectionId);
     closeModal();
   };
 
@@ -42,6 +43,7 @@ const NewWebMark = () => {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
+          <Input type="hidden" value={webcollectionId} />
           <Button type="submit">Create</Button>
         </form>
       </Modal>
