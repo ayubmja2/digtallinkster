@@ -40,11 +40,11 @@ export const createNewCollection = async (title, description) => {
 };
 
 // creates a new webmark in the collection
-export const createNewWebmark = async (title, url, id) => {
+export const createNewWebmark = async (title, url, description, id) => {
   return fetcher({
     url: `/api/webmark`,
     method: "POST",
-    body: { title, url, id },
+    body: { title, url, description, id },
   });
 };
 // export const createNewWebmark = async (title, url) => {

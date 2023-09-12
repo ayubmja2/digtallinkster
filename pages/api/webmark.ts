@@ -8,6 +8,7 @@ export default async function handler(req, res) {
     data: {
       title: req.body.title,
       url: req.body.url,
+      description: req.body.description,
       webcollectionId: req.body.id,
       userId: user.id,
     },

@@ -14,10 +14,16 @@ const NewWebMark = (webcollectionId) => {
   const closeModal = () => setIsOpen(false);
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createNewWebmark(title, url, webcollectionId.webcollectionId);
+    await createNewWebmark(
+      title,
+      url,
+      description,
+      webcollectionId.webcollectionId
+    );
     closeModal();
   };
 
@@ -42,6 +48,11 @@ const NewWebMark = (webcollectionId) => {
             placeholder="Mark URL"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
+          />
+          <Input
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <Input type="hidden" value={webcollectionId} />
           <Button type="submit">Create</Button>
