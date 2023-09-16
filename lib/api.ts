@@ -47,10 +47,12 @@ export const createNewWebmark = async (title, url, description, id) => {
     body: { title, url, description, id },
   });
 };
-// export const createNewWebmark = async (title, url) => {
-//   return fetcher({
-//     url: `/api/webmark/`,
-//     method: "POST",
-//     body: {collectionId, title, url },
-//   });
-// };
+
+// updates a webmark in the collection
+export const updateWebmark = async (title, url, description, id) => {
+  return fetcher({
+    url: `/api/updatewebmark`,
+    method: "PUT",
+    body: { title, url, description, id },
+  });
+};

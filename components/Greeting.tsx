@@ -2,7 +2,7 @@ import { getUserFromCookie } from "@/lib/auth";
 import { cookies } from "next/headers";
 import Button from "./Button";
 import Card from "./Card";
-
+import NewWebCollection from "./newWebCollection";
 const getData = async () => {
   const user = await getUserFromCookie(cookies());
   return user;
