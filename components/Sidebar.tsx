@@ -5,6 +5,7 @@ import SidebarLink from "./SidebarLink";
 
 const links = [
   { label: "Home", icon: "Grid", link: "/home" },
+  { label: "Explore", icon: "Globe", link: "/explore" },
   { label: "Profile", icon: "User", link: "/profile" },
   {
     label: "Settings",

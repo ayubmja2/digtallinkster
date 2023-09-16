@@ -1,6 +1,7 @@
 "use client";
 import { createNewCollection } from "@/lib/api";
 import { useState } from "react";
+import router from "next/router";
 import Modal from "react-modal";
 import Button from "./Button";
 import Input from "./Input";
@@ -18,6 +19,8 @@ const NewWebCollection = () => {
     e.preventDefault();
     await createNewCollection(title, description);
     closeModal();
+
+    router.reload();
   };
 
   return (

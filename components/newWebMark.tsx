@@ -1,6 +1,7 @@
 "use client";
 import { createNewWebmark } from "@/lib/api";
 import { useState } from "react";
+import router from "next/router";
 import Modal from "react-modal";
 import Button from "./Button";
 import Input from "./Input";
@@ -25,6 +26,7 @@ const NewWebMark = (webcollectionId) => {
       webcollectionId.webcollectionId
     );
     closeModal();
+    //figure out how to reload the page without the modal opening again
   };
 
   return (

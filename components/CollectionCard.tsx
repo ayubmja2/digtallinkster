@@ -46,7 +46,7 @@ const WebCollectionCard: FC<{ webcollection: WebCollectionWithWebMarks }> = ({
         </span> */}
       </div>
       <div>
-        <div className="w-full h-2 bg-violet-200 rounded-full mb-2">
+        <div className="w-full h-2 bg-blue-200 rounded-full mb-2">
           {/* <div
             className={clsx(
               "h-full text-center text-xs text-white bg-violet-600 rounded-full"
