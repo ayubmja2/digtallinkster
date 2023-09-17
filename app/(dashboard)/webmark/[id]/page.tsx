@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { db } from "@/lib/db";
 import UpdateWebMark from "@/components/UpdateWebMark";
 import Card from "@/components/Card";
+import DeleteWebMark from "@/components/DeleteWebMark";
 
 const getData = async (id) => {
   const user = await getUserFromCookie(cookies());
@@ -28,6 +29,9 @@ export default async function WebMarkPage({ params }) {
           </div>
           <div>
             <UpdateWebMark webmarkId={webmark?.id} />
+          </div>
+          <div>
+            <DeleteWebMark webmarkId={webmark?.id} />
           </div>
         </div>
         <div>

@@ -52,7 +52,7 @@ model Webmark {
   user   User   @relation(fields: [userId], references: [id])
 
   webcollectionId String
-  webcollection   Webcollection @relation(fields: [webcollectionId], references: [id])
+  webcollection   Webcollection @relation(fields: [webcollectionId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }

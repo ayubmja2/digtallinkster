@@ -56,3 +56,12 @@ export const updateWebmark = async (title, url, description, id) => {
     body: { title, url, description, id },
   });
 };
+
+// deletes a webmark in the collection
+export const deleteWebmark = async (id) => {
+  return fetcher({
+    url: `/api/deletewebmark`,
+    method: "DELETE",
+    body: { id },
+  });
+};
